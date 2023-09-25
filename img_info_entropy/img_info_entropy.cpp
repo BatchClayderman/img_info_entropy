@@ -161,7 +161,6 @@ double Entropy(Mat img)
 
 
 
-
 int main()
 {
 	system("chcp 936&title 基于最小信息熵准则的水印嵌入&color e&cls");
@@ -226,8 +225,11 @@ int main()
 				rr = i;
 				cc = j;
 			}
+#ifdef DEBUG
 			cout << "分块[" << i << "][" << j << "]：" << tmp << endl;
+#endif // DEBUG
 		}
+	cout << endl << "最小信息熵分块位于分块[" << cc << "][" << rr << "]处，值为 " << min_ent << "！" << endl;
 	Rect min_rect(rr * img2.cols, cc * img2.rows, img2.cols, img2.rows);
 
 	img1(min_rect) &= img2;
